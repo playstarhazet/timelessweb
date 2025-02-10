@@ -91,7 +91,9 @@ header {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .header-content {
@@ -1003,6 +1005,7 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        max-width: 100%;
     }
 
     .hero-left {
@@ -1010,20 +1013,20 @@ html {
         align-items: flex-start;
         justify-content: flex-start;
         margin-bottom: 0.5rem;
-        padding-right: 20px;
+        width: 100%;
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: calc(24px + 2vw);
         text-align: left;
         margin: 0;
         margin-bottom: 1.5rem;
-        white-space: nowrap;
+        line-height: 1.2;
+        width: 100%;
     }
     
     .hero-title span {
         display: block;
-        white-space: nowrap;
     }
 
     .hero-right {
@@ -1031,7 +1034,7 @@ html {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding-left: 20px;
+        width: 100%;
     }
 
     .specialties {
@@ -1040,13 +1043,21 @@ html {
         margin-bottom: 1.5rem;
     }
 
+    .specialties h2 {
+        font-size: calc(18px + 1vw);
+    }
+
+    .specialties-list {
+        font-size: calc(14px + 0.5vw);
+    }
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 0 20px;
+        padding: 0;
         width: 100%;
-        max-width: 800px;
-        box-sizing: border-box;
+        max-width: 100%;
+        margin: 0;
     }
 
     .contact-form {
@@ -1140,12 +1151,18 @@ html {
 
 /* Fix contact form overflow */
 @media (max-width: 900px) {
+    .contact-section {
+        padding: 2rem 0;
+        overflow: hidden;
+    }
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 0;
         width: 100%;
         max-width: 100%;
+        margin: 0;
     }
 
     .contact-form {
@@ -1157,10 +1174,18 @@ html {
     }
 
     .container {
+        width: 100%;
+        max-width: 100%;
         padding: 0 20px;
         box-sizing: border-box;
-        width: 100%;
         overflow: hidden;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 }
 
