@@ -242,15 +242,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Email copy functionality
-    const emailItem = document.querySelector('.contact-item.email');
-    const emailText = document.querySelector('.email-text');
+    // Handle email copy
+    const emailLink = document.querySelector('.email-copy');
     const toast = document.getElementById('toast');
 
-    if (emailItem && emailText) {
-        emailItem.addEventListener('click', async () => {
+    if (emailLink && toast) {
+        emailLink.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const email = emailLink.textContent;
+            
             try {
-                await navigator.clipboard.writeText(emailText.textContent);
+                await navigator.clipboard.writeText(email);
                 toast.classList.add('show');
                 setTimeout(() => {
                     toast.classList.remove('show');

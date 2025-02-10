@@ -372,9 +372,10 @@ nav ul li a::after {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: start;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    min-height: 400px;
     padding: 0 20px;
     box-sizing: border-box;
 }
@@ -406,9 +407,7 @@ nav ul li a::after {
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: var(--light-blue);
-    padding: 0.5rem;
-    transition: all 0.3s ease;
+    padding: 0.8rem 0;
 }
 
 .contact-item:hover {
@@ -416,12 +415,22 @@ nav ul li a::after {
 }
 
 .contact-item svg {
-    color: var(--neon-blue);
+    flex-shrink: 0;
+}
+
+.contact-link {
+    color: var(--light-blue);
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.contact-item:hover svg {
-    filter: drop-shadow(0 0 8px var(--glow-blue));
+.contact-link:hover {
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px var(--glow-blue);
+}
+
+.email-copy {
+    cursor: pointer;
 }
 
 .contact-form {
@@ -665,35 +674,6 @@ html {
     
     nav ul {
         gap: 1.5rem;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 20px;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .contact-form {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 2rem;
-    }
-    
-    .contact-item {
-        cursor: pointer;
-    }
-    
-    .contact-item.phone {
-        color: var(--neon-blue);
-    }
-    
-    .contact-item.email {
-        color: var(--neon-blue);
     }
 }
 
@@ -1030,7 +1010,7 @@ html {
         align-items: flex-start;
         justify-content: flex-start;
         margin-bottom: 0.5rem;
-        padding-right: 2rem;
+        padding-right: 20px;
     }
     
     .hero-title {
@@ -1038,12 +1018,12 @@ html {
         text-align: left;
         margin: 0;
         margin-bottom: 1.5rem;
-        line-height: 1.2;
+        white-space: nowrap;
     }
     
-    .hero-title .hero-line1,
-    .hero-title .hero-line2 {
+    .hero-title span {
         display: block;
+        white-space: nowrap;
     }
 
     .hero-right {
@@ -1051,7 +1031,7 @@ html {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding-left: 2rem;
+        padding-left: 20px;
     }
 
     .specialties {
@@ -1151,73 +1131,50 @@ html {
 }
 
 /* Adjust section title spacing */
-.portfolio-section {
-    padding: 4rem 0;
-}
-
-.portfolio-section .section-title,
-.contact-section .section-title {
+.section-title {
     text-align: center;
     font-size: 3rem;
     color: var(--light-blue);
-    margin-bottom: 3rem;
-    animation: fadeInUp 1s ease-out;
+    margin: 3rem 0;
 }
 
-/* Fix contact form overflow on iPad */
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
+/* Fix contact form overflow */
 @media (max-width: 900px) {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 0 20px;
+        padding: 0;
         width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
     }
 
     .contact-form {
         width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
         margin: 0;
-        padding: 2rem;
+        padding: 1.5rem;
+        box-sizing: border-box;
     }
-    
-    .contact-item {
-        cursor: pointer;
-    }
-    
-    .contact-item.phone {
-        color: var(--neon-blue);
-    }
-    
-    .contact-item.email {
-        color: var(--neon-blue);
+
+    .container {
+        padding: 0 20px;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
     }
 }
 
-/* Toast notification */
+/* Add toast notification styles */
 .toast {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--deep-purple);
+    background: rgba(42, 27, 61, 0.95);
+    color: var(--light-blue);
     padding: 1rem 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px var(--glow-blue);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
@@ -1227,5 +1184,4 @@ html {
 .toast.show {
     opacity: 1;
     visibility: visible;
-    animation: fadeInUp 0.3s ease forwards;
 } 
