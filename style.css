@@ -998,35 +998,23 @@ html {
 @media (max-aspect-ratio: 1/1) {
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
-        padding: 2rem 0;
-        text-align: left;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-width: 100%;
+        gap: 3rem;
+        padding: 2rem 20px;
     }
 
     .hero-left {
         display: flex;
+        flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        margin-bottom: 0.5rem;
-        width: 100%;
+        margin-bottom: 0;
     }
     
     .hero-title {
-        font-size: calc(24px + 2vw);
+        font-size: min(3.5rem, 8vw);
         text-align: left;
         margin: 0;
-        margin-bottom: 1.5rem;
         line-height: 1.2;
-        width: 100%;
-    }
-    
-    .hero-title span {
-        display: block;
     }
 
     .hero-right {
@@ -1034,21 +1022,25 @@ html {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 100%;
     }
 
     .specialties {
         width: 100%;
         text-align: left;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .specialties h2 {
-        font-size: calc(18px + 1vw);
+        font-size: min(2rem, 6vw);
+        margin-bottom: 1.5rem;
     }
 
     .specialties-list {
-        font-size: calc(14px + 0.5vw);
+        font-size: min(1.1rem, 4vw);
+    }
+
+    .specialties-list li {
+        margin-bottom: 0.8rem;
     }
 
     .contact-content {
@@ -1075,6 +1067,28 @@ html {
     .footer-text {
         width: 100%;
         text-align: center;
+    }
+}
+
+/* Specific iPad adjustments */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) {
+    .hero-content {
+        padding: 2rem 40px;
+    }
+
+    .hero-title {
+        font-size: 3.2rem;
+        max-width: 90%;
+    }
+
+    .hero-right {
+        padding-left: 40px;
+    }
+
+    .specialties {
+        max-width: 90%;
     }
 }
 
