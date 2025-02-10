@@ -742,9 +742,19 @@ html {
 /* Touch device styles */
 @media (hover: none) and (pointer: coarse) {
     .portfolio-section {
-        padding: 4rem 0 2rem 0;
+        padding: 6rem 0;
     }
 
+    .portfolio-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
+    }
+    
     .portfolio-items-container {
         display: flex;
         overflow-x: auto;
@@ -761,29 +771,69 @@ html {
         width: 100%;
     }
 
+    .portfolio-items-container::before,
+    .portfolio-items-container::after {
+        content: '';
+        min-width: calc((100% - 85%) / 2);
+    }
+    
+    .portfolio-items-container::-webkit-scrollbar {
+        display: none;
+    }
+    
     .portfolio-item {
         flex: 0 0 85%;
         scroll-snap-align: center;
         margin: 0;
         user-drag: none;
         -webkit-user-drag: none;
+        aspect-ratio: 16/10;
+        width: 85%;
+    }
+
+    .portfolio-item .image-container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+    }
+
+    .portfolio-content {
+        display: none;
     }
 
     .portfolio-mobile-info {
         display: block !important;
         text-align: center;
-        padding: 0.8rem 0;
+        padding: 1.5rem 0;
     }
 
     .portfolio-mobile-info h3 {
         color: var(--light-blue);
-        margin: 0 0 0.8rem 0;
+        margin: 0 0 1rem 0;
         font-size: 1.3rem;
         transition: opacity 0.15s ease;
     }
 
-    .portfolio-nav {
-        margin-bottom: 0.8rem;
+    .portfolio-mobile-info h3.fade-out {
+        animation: fadeOut 0.15s ease forwards;
+    }
+
+    .portfolio-mobile-info h3.fade-in {
+        animation: fadeIn 0.15s ease forwards;
+    }
+
+    .portfolio-mobile-info .view-site {
+        display: inline-block;
+        background: linear-gradient(45deg, var(--electric-purple), var(--neon-blue));
+        color: var(--white);
+        padding: 0.8rem 2rem;
+        border-radius: 4px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 0 10px var(--glow-blue);
     }
 }
 
@@ -1040,37 +1090,6 @@ and (max-device-width: 1024px) {
     .specialties {
         max-width: 90%;
     }
-
-    .portfolio-item {
-        flex: 0 0 70%;
-    }
-
-    .portfolio-item .image-container {
-        aspect-ratio: 16/9;
-        max-height: 300px;
-    }
-
-    .portfolio-mobile-info {
-        padding: 0.5rem 0;
-    }
-
-    .portfolio-nav {
-        gap: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .nav-arrow svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    .portfolio-mobile-info h3 {
-        margin: 0 0 0.5rem 0;
-    }
-
-    .portfolio-mobile-info .view-site {
-        padding: 0.6rem 1.5rem;
-    }
 }
 
 .portfolio-nav {
@@ -1100,6 +1119,40 @@ and (max-device-width: 1024px) {
 .nav-arrow svg {
     width: 32px;
     height: 32px;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .portfolio-mobile-info {
+        display: block !important;
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+
+    .portfolio-mobile-info h3 {
+        color: var(--light-blue);
+        margin: 0 0 1rem 0;
+        font-size: 1.3rem;
+        transition: opacity 0.15s ease;
+    }
+
+    .portfolio-mobile-info h3.fade-out {
+        animation: fadeOut 0.15s ease forwards;
+    }
+
+    .portfolio-mobile-info h3.fade-in {
+        animation: fadeIn 0.15s ease forwards;
+    }
+
+    .portfolio-mobile-info .view-site {
+        display: inline-block;
+        background: linear-gradient(45deg, var(--electric-purple), var(--neon-blue));
+        color: var(--white);
+        padding: 0.8rem 2rem;
+        border-radius: 4px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 0 10px var(--glow-blue);
+    }
 }
 
 /* Adjust section title spacing */
